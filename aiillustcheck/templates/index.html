@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Illustration Uploader - イラストアップローダー</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1>AI illustration checker</h1>
+        <h3>AIイラストチェッカー</h3>
+    </header>
+    <!-- メインコンテナ -->
+    <div class="container">
+        <!-- イラストアップロードフォーム -->
+        <form id="uploadForm" action="#" method="post" enctype="multipart/form-data">
+            <label for="fileInput" id="fileLabel">イラストを選択してください</label><br>
+            <input type="file" id="fileInput" name="image" accept=".jpg, .jpeg, .png" onclick="resetResults()" onchange="handleFileInput()"><br>
+            <input type="submit" id="checkButton" value="CHECK" disabled>
+        </form>
+        <!-- ローディング・オーバーレイ -->
+        <div id="loading-overlay" style="display: none;">
+            <div class="loader"></div>
+            loading...
+        </div>
+        <!-- 画像プレビュ -->
+        <div id="image-preview"></div>
+        <!-- AIによる判定結果表示エリア -->
+        <div id="prediction-results">
+            <h2>RESULT</h2>
+            <p>AI Probability: <span id="ai-probability"></span>%</p>
+            <p id="result-message"></p>
+        </div>
+        <!-- サイト説明-->
+        <section>
+            <h2>ウェブサイトの説明</h2>
+            <p>AI illustration checkerは、イラストがAIによって作成されたか否かを簡単に判定するウェブアプリです。</p>
+        </section>
+        <!-- 更新情報-->
+        <section>
+            <h2>更新情報</h2>
+            <ul>
+                <li><strong>2023年9月</strong>:【予定】判定精度のアップグレード予定です。 </li>
+                <li><strong>2023年8月</strong>: サイトをデプロイしました。</li>
+            </ul>
+        </section>
+    </div>
+
+    <script>
+        // 判定結果のリセット
+        function resetResults() {
+            document.getElementById('ai-probability').innerText = '';
+            document.getElementById('result-message').innerText = '';
+            document.getElementById('image-preview').style.backgroundImage = '';
+        }
+
+        // ファイルの有無に応じてCHECKボタン状態制御
+        function handleFileInput() {
+            const fileInput = document.getElementById('fileInput');
+            const checkButton = document.getElementById('checkButton');
+
+            if (fileInput.files && fileInput.files[0]) {
+                checkButton.disabled = false;
+                checkButton.style.backgroundColor = "black";
+            } else {
+                checkButton.disabled = true;
+                checkButton.style.backgroundColor = "grey";
+            }
+        }
+    </script>
+</body>
+
+</html>

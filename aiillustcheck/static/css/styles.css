@@ -1,0 +1,206 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 2px; 
+}
+
+body {
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    color: #333333;
+}
+
+header h1 {
+    letter-spacing: 8px;
+}
+
+header {
+    background-color: #222222;
+    color: #ffffff;
+    text-align: center;
+    padding: 150px 0;
+    width: 100%;
+}
+
+nav {
+    width: 100%;
+    background-color: #555555;
+    padding: 10px 0;
+}
+
+nav ul {
+    max-width: 800px;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    letter-spacing: 6px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #ffffff;
+    color: #555555;
+}
+
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#fileInput {
+    display: none;
+}
+
+#fileLabel {
+    display: inline-block;
+    padding: 8px 22px;
+    background-color: #00bbaa;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#fileLabel:hover {
+    background-color: #009988;
+}
+
+input[type="submit"], button {
+    background-color: #333333;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover, button:hover {
+    background-color: #555555;
+}
+
+
+button:disabled {
+    background-color: #e0e0e0;
+    color: #aaaaaa;
+}
+
+#image-preview {
+    width: 100%;          
+    padding-bottom: 100%; 
+    position: relative;   
+    border: 2px dashed #cccccc;
+    margin: 20px 0;
+    background-size: contain;   
+    background-position: center; 
+    background-repeat: no-repeat; 
+}
+
+#prediction-results, section {
+    padding: 20px;
+    border-top: 1px solid #cccccc;
+    margin-top: 20px;
+}
+
+#prediction-results p {
+    font-weight: bold; 
+    text-align: center; 
+    margin-top: 60px;  
+    margin-bottom: 60px; 
+    font-size: 20px; 
+}
+
+#prediction-results #result-message {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#ai-probability {
+    font-size: 35px;
+}
+
+section ul {
+    list-style: none;
+    padding-left: 20px;
+}
+
+section ul li {
+    margin-bottom: 10px;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+section p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+
+
+#loading-overlay {
+    display: none; 
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.7); 
+    z-index: 9999; 
+    
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+}
+
+
+#loading-animation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    font-weight: bold;
+}
+
+.loader {
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid #2feac2;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+}
+
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
